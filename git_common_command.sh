@@ -28,3 +28,31 @@ git add file2.txt file3.txt
 git commit -m "add 3 files."
 git status
 git diff git_common_command.sh
+git add git_common_command.sh
+git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#         modified:   git_common_command.sh
+#
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#         modified:   git_common_command.sh
+git diff git_common_command.sh
+# warning: LF will be replaced by CRLF in git_common_command.sh.
+# The file will have its original line endings in your working directory.
+# diff --git a/git_common_command.sh b/git_common_command.sh
+# index 24abd65..b58f75f 100644
+# --- a/git_common_command.sh
+# +++ b/git_common_command.sh
+# @@ -28,3 +28,4 @@ git add file2.txt file3.txt
+#  git commit -m "add 3 files."
+#  git status
+#  git diff git_common_command.sh
+# +git add git_common_command.sh
+git commit -m "add some command"
+git add git_common_command.sh
+git commit -m "add some command2"
