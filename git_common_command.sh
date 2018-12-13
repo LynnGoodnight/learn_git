@@ -1,4 +1,4 @@
-#在git bash窗口可以使用Linux命令,感觉就像在Linux系统下操作一样
+#在git bash窗口可以使用Linux bash语言,感觉就像在Linux系统下操作一样
 git config --global user.name "yangliu"
 git config --global user.email "32932866LynnGoodnight@users.noreply.github.com"
 cd D:\
@@ -117,4 +117,15 @@ git status
 #         LICENSE
 #
 # no changes added to commit (use "git add" and/or "git commit -a")
-add LICENSE git_common_command.sh
+git add LICENSE git_common_command.sh
+git commit -m "understand what is stage"
+git diff HEAD -- git_common_command.sh
+git diff git_common_command.sh
+# git diff 只有文件参数时是给出暂存区和工作区的diff,若此时暂存区is clean，则比较HEAD 和工作区目前的文件
+git add git_common_command.sh
+git  checkout -- git_common_command.sh
+# (use "git checkout -- <file>..." to discard changes in working directory)
+git reset HEAD git_common_command.sh
+# 把暂存区的修改清除。当我们用HEAD时，表示版本库中的最新的版本。此操作不会对工作区造成更改
+git commit -m "add git reset HEAD ; git  checkout -- ；git diff HEAD -- "
+git add git_common_command.sh
