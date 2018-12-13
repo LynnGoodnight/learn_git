@@ -41,6 +41,7 @@ git status
 #   (use "git checkout -- <file>..." to discard changes in working directory)
 #
 #         modified:   git_common_command.sh
+# Changes not staged for commit:就是说这个change还没有存入暂存区，暂存区在git中称为stage
 git diff git_common_command.sh
 # warning: LF will be replaced by CRLF in git_common_command.sh.
 # The file will have its original line endings in your working directory.
@@ -100,3 +101,20 @@ git reset --hard 115038cc24d4c7a7f47933d57f4ec02eaef2be49
 git reflog
 git add git_common_command.sh
 git commit -m "add some command git log, git reflog, git reset --hard"
+
+vi LICENSE
+git status
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#         modified:   git_common_command.sh
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#         LICENSE
+#
+# no changes added to commit (use "git add" and/or "git commit -a")
+add LICENSE git_common_command.sh
