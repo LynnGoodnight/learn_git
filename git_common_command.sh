@@ -82,7 +82,7 @@ git log --pretty=oneline
 
 
 git reset --hard HEAD^
-# 用了上面这行命令之后我得atom里面的脚本内容竟然直接就变回原来commit提交的版本了，可怕，还好可以用control z 退回来
+# 用了上面这行命令之后我工作区和atom里面的脚本内容竟然直接就变回之前commit提交的版本了，可怕，还好可以用control z 退回来
 git log
 # commit b512a7d53b272001d372ccc9f9ca0fd82b146ae3 (HEAD -> master)
 # Author: yangliu <32932866LynnGoodnight@users.noreply.github.com>
@@ -127,5 +127,10 @@ git  checkout -- git_common_command.sh
 # (use "git checkout -- <file>..." to discard changes in working directory)
 git reset HEAD git_common_command.sh
 # 把暂存区的修改清除。当我们用HEAD时，表示版本库中的最新的版本。此操作不会对工作区造成更改
-git commit -m "add git reset HEAD ; git  checkout -- ；git diff HEAD -- "
 git add git_common_command.sh
+git commit -m "add git reset HEAD ; git  checkout -- ；git diff HEAD -- "
+rm LICENSE
+git status
+git rm LICENSE
+git add git_common_command.sh
+git commit -m "remove LICENSE"
