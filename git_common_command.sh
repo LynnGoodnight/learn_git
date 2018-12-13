@@ -56,3 +56,47 @@ git diff git_common_command.sh
 git commit -m "add some command"
 git add git_common_command.sh
 git commit -m "add some command2"
+git log
+# commit 115038cc24d4c7a7f47933d57f4ec02eaef2be49 (HEAD -> master)
+# Author: yangliu <32932866LynnGoodnight@users.noreply.github.com>
+# Date:   Thu Dec 13 14:24:03 2018 +0800
+#
+#     add some command2
+#
+# commit b512a7d53b272001d372ccc9f9ca0fd82b146ae3
+# Author: yangliu <32932866LynnGoodnight@users.noreply.github.com>
+# Date:   Thu Dec 13 14:21:44 2018 +0800
+#
+#     add some command
+#
+# commit b94bb2a2d7a9753f5edb19914937dfca9ce35b2a
+# Author: yangliu <32932866LynnGoodnight@users.noreply.github.com>
+# Date:   Thu Dec 13 14:06:08 2018 +0800
+#
+#     write a git_common_command.sh file
+git log --pretty=oneline
+# 115038cc24d4c7a7f47933d57f4ec02eaef2be49 (HEAD -> master) add some command2
+# b512a7d53b272001d372ccc9f9ca0fd82b146ae3 add some command
+# b94bb2a2d7a9753f5edb19914937dfca9ce35b2a write a git_common_command.sh file
+
+
+git reset --hard HEAD^
+# 用了上面这行命令之后我得atom里面的脚本内容竟然直接就变回原来commit提交的版本了，可怕，还好可以用control z 退回来
+git log
+# commit b512a7d53b272001d372ccc9f9ca0fd82b146ae3 (HEAD -> master)
+# Author: yangliu <32932866LynnGoodnight@users.noreply.github.com>
+# Date:   Thu Dec 13 14:21:44 2018 +0800
+#
+#     add some command
+#
+# commit b94bb2a2d7a9753f5edb19914937dfca9ce35b2a
+# Author: yangliu <32932866LynnGoodnight@users.noreply.github.com>
+# Date:   Thu Dec 13 14:06:08 2018 +0800
+#
+#     write a git_common_command.sh file
+
+git reset --hard 115038cc24d4c7a7f47933d57f4ec02eaef2be49
+# HEAD is now at 115038c add some command2
+git reflog
+git add git_common_command.sh
+git commit -m "add some command git log, git reflog, git reset --hard"
