@@ -250,3 +250,14 @@ git stash drop
 git stash list
 git stash apply stash@{0}
 git commit -m "git stash ;git stash apply; git stash pop"
+
+git branch -D feature-vulcan
+丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除。
+git remote
+git remote -v
+git push origin master
+git push origin dev
+git branch --set-upstream-to=origin/dev dev
+git pull
+git commit -m "fix env conflict"
+git push origin dev
