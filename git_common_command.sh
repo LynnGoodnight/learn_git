@@ -229,4 +229,24 @@ git checkout -b dev
 git add git_common_command.sh
 git commit -m "git merge --no-ff"
 git checkout master
-git merge --no-ff -m "merge with no-ff" dev 
+git merge --no-ff -m "merge with no-ff" dev
+git branch -d dev
+
+# BUG分支管理
+git stash
+# Saved working directory and index state WIP on master: 3bb820e merge with no-ff
+git checkout master
+git checkout -b issue-101
+git add git_common_command.sh
+git commit -m "fix bug 101"
+git checkout master
+git merge --no-ff -m "merged bug fix 101" issue-101
+git checkout dev
+git status
+git stash list
+git stash pop
+git stash apply
+git stash drop
+git stash list
+git stash apply stash@{0}
+git commit -m "git stash ;git stash apply; git stash pop"
