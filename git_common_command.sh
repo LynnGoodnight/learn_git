@@ -3,7 +3,7 @@ git config --global user.name "yangliu"
 git config --global user.email "32932866LynnGoodnight@users.noreply.github.com"
 cd D:\
 mkdir learn_git
-cd learn_git
+cd D:\learn_git
 pwd
 git init
 git add git_common_command.sh
@@ -252,7 +252,7 @@ git stash apply stash@{0}
 git commit -m "git stash ;git stash apply; git stash pop"
 
 git branch -D feature-vulcan
-丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除。
+# 丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除。
 git remote
 git remote -v
 git push origin master
@@ -261,3 +261,22 @@ git branch --set-upstream-to=origin/dev dev
 git pull
 git commit -m "fix env conflict"
 git push origin dev
+
+
+cd D:\etl
+ssh-keygen -t rsa -C "yangliu@icarbonx.com"
+
+git clone git@gitlab.icarbonx.cn:ai-doc/ai-etl.git
+cd ai-etl
+git status
+git add doc/16S/
+git commit -m "add 16S"
+git push origin master
+git branch --set-upstream-to=origin/master master
+git config user.email "yangliu@icarbonx.com"
+git reset --hard 399b92d3c2e5310221553d186bb4e5658591689a
+git remote -v
+git add doc/16S/
+git commit -m "add 16S"
+
+cd D:\learn_git
