@@ -173,6 +173,60 @@ git branch
 git add git_common_command.sh
 git commit -m "branch test"
 git checkout master
+# 我发现切换到master分支之后工作区的文件直接就更改成master上次commit之后的内容了
 git merge 16S
+# 工作区的文件直接变成在16S分支git commit -m "branch test"之后的内容
 git branch -d 16S
 git branch
+
+# 解决分支冲突示例
+git checkout -b feature1
+git add readme.txt
+git commit -m "AND simple"
+git checkout master
+git add readme.txt
+git commit -m "& simple"
+git merge feature1
+# Auto-merging readme.txt
+# CONFLICT (content): Merge conflict in readme.txt
+# Automatic merge failed; fix conflicts and then commit the result.
+git status
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#   (use "git push" to publish your local commits)
+#
+# You have unmerged paths.
+#   (fix conflicts and run "git commit")
+#   (use "git merge --abort" to abort the merge)
+#
+# Unmerged paths:
+#   (use "git add <file>..." to mark resolution)
+#
+#     both modified:   readme.txt
+#
+# no changes added to commit (use "git add" and/or "git commit -a")
+# 此时需要在master分支上把readme.txt内容改为和git commit -m "AND simple"提交的内容一致，再用add+commit提交一次，才能够merge成功
+git add readme.txt
+git commit -m "conflict fixed"
+git log --graph --pretty=oneline --abbrev-commit
+# *   cf810e4 (HEAD -> master) conflict fixed
+# |\
+# | * 14096d0 (feature1) AND simple
+# * | 5dc6824 & simple
+# |/
+# * b17d20e branch test
+# * d46f35e (origin/master) remove test.txt
+# * b84166e add test.txt
+# * 519219b git tracks changes
+# * e43a48b understand how stage works
+# * 1094adb append GPL
+# * e475afc add distributed
+# * eaadf4e wrote a readme file
+git branch -d feature1
+
+# 分支管理策略
+git checkout -b dev
+git add git_common_command.sh
+git commit -m "git merge --no-ff"
+git checkout master
+git merge --no-ff -m "merge with no-ff" dev 
