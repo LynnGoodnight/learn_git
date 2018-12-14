@@ -134,3 +134,45 @@ git status
 git rm LICENSE
 git add git_common_command.sh
 git commit -m "remove LICENSE"
+git remote add origin git@github.com:LynnGoodnight/learn_git
+git remote add origin git@github.com:LynnGoodnight/learn_git
+git push -u origin master
+# The authenticity of host 'github.com (13.229.188.59)' can't be established.
+# RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+# Are you sure you want to continue connecting (yes/no)? yes
+# Warning: Permanently added 'github.com,13.229.188.59' (RSA) to the list of known hosts.
+# git@github.com: Permission denied (publickey).
+# fatal: Could not read from remote repository.
+#
+# Please make sure you have the correct access rights
+# and the repository exists.
+ssh-keygen -t rsa -C "32932866LynnGoodnight@users.noreply.github.com"
+# 之前GitHub上的SSH Key是本地没有入域的联想账户的，现在切换到入域的yangliu账户要重新生成SSH Key，然后添加到GitHub上面
+git push -u origin master
+# 由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支
+# 内容推送到远程新的master分支，还会把本地的master分支和远程的master分支关联起来，
+# 在以后的推送或者拉取时就可以简化命令。
+# Warning: Permanently added the RSA host key for IP address '52.74.223.119' to the list of known hosts.
+# To github.com:LynnGoodnight/learn_git
+#  ! [rejected]        master -> master (fetch first)
+# error: failed to push some refs to 'git@github.com:LynnGoodnight/learn_git'
+# hint: Updates were rejected because the remote contains work that you do
+# hint: not have locally. This is usually caused by another repository pushing
+# hint: to the same ref. You may want to first integrate the remote changes
+# hint: (e.g., 'git pull ...') before pushing again.
+# hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+# 我看GitHub上的版本库没有变化
+
+git push origin master
+git clone git@github.com:LynnGoodnight/learn_git
+# 会在D:\learn_git目录下新生成一个文件夹learn_git，这个新生成的learn_git文件夹里面有一个.git文件夹
+git checkout -b 16S
+git branch 16S
+git checkout 16S
+git branch
+git add git_common_command.sh
+git commit -m "branch test"
+git checkout master
+git merge 16S
+git branch -d 16S
+git branch
